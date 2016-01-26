@@ -16,14 +16,14 @@ If you use Roswell then
 
 ```
 cd ~/.roswell/local-projects
-git clone https://github.com/somewrite-adtech/cl-tasukete.git
+git clone https://github.com/gos-k/cl-tasukete.git
 ```
 
 If you use Quicklisp then
 
 ```
 cd ~/quicklisp/local-projects
-git clone https://github.com/somewrite-adtech/cl-tasukete.git
+git clone https://github.com/gos-k/cl-tasukete.git
 ```
 
 ## Usage
