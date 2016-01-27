@@ -1,4 +1,4 @@
-# Cl-Tasukete
+# cl-tasukete
 
 [![CircleCI Status](https://circleci.com/gh/gos-k/cl-tasukete.svg?style=shield)](https://circleci.com/gh/somewrite-adtech/cl-tasukete)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://opensource.org/licenses/mit-license.php)
@@ -81,6 +81,8 @@ If you stop cl-tasukete
 
 ## License
 
+```
 Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
 Licensed under the MIT License.
 http://opensource.org/licenses/mit-license.php
+```
