@@ -9,9 +9,12 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
         :prove
         :cl-tasukete-test.init)
   (:import-from :cl-tasukete
+                :<key-value>
                 :<loaded-packages>
                 :<stack>
                 :value
+                :get-key
+                :get-value
                 :send-to-gist
                 :make-debug-information
                 :make-loaded-packages))
@@ -44,8 +47,12 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
 
 (subtest "make-load-packages"
   (with-stub-asdf
-    (is (make-loaded-packages) `(("dummy" . "0.0.0") ("dummy-test" . "1.2.3"))
-        "can call make-loaded-packages")))
+    (let ((packages (make-loaded-packages)))
+      (is (length packages) 2)
+      (is (get-key (nth 0 packages)) "dummy")
+      (is (get-value (nth 0 packages)) "0.0.0")
+      (is (get-key (nth 1 packages)) "dummy-test")
+      (is (get-value (nth 1 packages)) "1.2.3"))))
 
 (subtest "send-to-gist"
   (with-stub-cl-gists
