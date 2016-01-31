@@ -40,8 +40,8 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
 
 @export-class
 (defclass <key-value> ()
-  (key
-   value))
+  ((key :initarg :key)
+   (value :initarg :value)))
 
 (defmethod get-key ((key-value <key-value>))
   (slot-value key-value 'key))
@@ -93,11 +93,6 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
   ((key :initform "loaded-packages")
    (value :initform (make-loaded-packages))))
 
-(defmethod get-value ((loaded-packages <loaded-packages>))
-  (with-object
-    (loop for (key . value) in (slot-value loaded-packages 'value)
-          do (write-key-value key value))))
-
 @export-class
 (defclass <stack> (<key-value>)
   ((key :initform "stack")
@@ -117,7 +112,9 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
 @export
 (defun make-loaded-packages ()
   (mapcar #'(lambda (name)
-              (cons name (component-version (find-system name))))
+              (make-instance '<key-value>
+                             :key name
+                             :value (component-version (find-system name))))
           (already-loaded-systems)))
 
 @export
