@@ -71,8 +71,15 @@ If you stop cl-tasukete
 ## Unittest
 
 ```common-lisp
-(ql:quickload :cl-tasukete)
-(asdf:test-system :cl-tasukete)
+(ql:quickload :prove)
+(prove:run :cl-tasukete-test)
+```
+
+or
+
+```
+cd cl-tasukete/
+run-prove *-test.asd
 ```
 
 ## Author
