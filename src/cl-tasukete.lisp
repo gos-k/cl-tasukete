@@ -119,8 +119,9 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
 
 @export
 (defmethod debug-information-to-json (debug-information)
-  (with-object
-    (write-key-value "cl-tasukete" debug-information)))
+  (with-output-to-string*
+    (with-object
+      (write-key-value "cl-tasukete" debug-information))))
 
 @export
 (defun send-to-gist (content)
@@ -141,7 +142,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
     (let* ((debug-information (pop *debug-information-stock*))
           (tasukete-json (debug-information-to-json debug-information)))
       (when *use-standard-output*
-        (format t "~s~%" tasukete-json))
+        (format t "~a~%" tasukete-json))
       (when *use-gist*
         (let* ((gist (send-to-gist tasukete-json)))
           (format t "sent to gist : ~a~%" (gist-url gist))))
