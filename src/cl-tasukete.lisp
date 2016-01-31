@@ -96,7 +96,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
 (defmethod get-value ((loaded-packages <loaded-packages>))
   (with-object
     (loop for (key . value) in (slot-value loaded-packages 'value)
-          collect (write-key-value key value))))
+          do (write-key-value key value))))
 
 @export-class
 (defclass <stack> (<key-value>)
