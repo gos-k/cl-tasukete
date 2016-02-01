@@ -1,0 +1,15 @@
+language: common-lisp
+
+env:
+  global:
+    - PATH=~/.roswell/bin:$PATH
+  matrix:
+    - LISP=sbcl-bin
+    - LISP=ccl-bin
+
+install:
+  - curl https://raw.githubusercontent.com/luismbo/cl-travis/master/install.sh | bash
+  - ros install prove
+
+script:
+  - run-prove cl-tasukete-test.asd
