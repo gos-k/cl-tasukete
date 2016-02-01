@@ -1,6 +1,7 @@
 # cl-tasukete
 
 [![CircleCI Status](https://circleci.com/gh/gos-k/cl-tasukete.svg?style=shield)](https://circleci.com/gh/somewrite-adtech/cl-tasukete)
+[![TravisCI Status](https://travis-ci.org/gos-k/cl-tasukete.svg?branch=master)](https://travis-ci.org/gos-k/cl-tasukete)
 [![MIT License](http://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://opensource.org/licenses/mit-license.php)
 [![Quicklisp](http://quickdocs.org/badge/cl-tasukete.svg)](http://quickdocs.org/cl-tasukete/)
 
