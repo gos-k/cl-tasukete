@@ -23,9 +23,9 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
        (setf (symbol-function 'asdf:already-loaded-systems)
              (lambda () (list "dummy" "dummy-test")))
        (setf (symbol-function 'asdf:find-system)
-             (lambda (x) (cdr (assoc x `(("dummy" . "dummy") ("dummy-test" . "dummy-test"))))))
+             (lambda (x) (cdr (assoc x `(("dummy" . "dummy") ("dummy-test" . "dummy-test")) :test #'string=))))
        (setf (symbol-function 'asdf:component-version)
-             (lambda (x) (cdr (assoc x `(("dummy" . "0.0.0") ("dummy-test" . "1.2.3"))))))
+             (lambda (x) (cdr (assoc x `(("dummy" . "0.0.0") ("dummy-test" . "1.2.3")) :test #'string=))))
 
        (unwind-protect
             (progn ,@body)
