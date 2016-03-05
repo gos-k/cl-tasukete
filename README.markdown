@@ -9,7 +9,7 @@ Please help me, Common Lisper.
 
 ## Description
 
-'cl-tasukete' is a library of collecting debug information and output somewhere.
+`cl-tasukete` is a library of collecting debug information and output somewhere.
 
 ## Installation
 
