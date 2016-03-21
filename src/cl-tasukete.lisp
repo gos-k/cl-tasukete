@@ -137,6 +137,12 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
   (funcall *default-debugger-hook* condition me-or-my-encapsulation))
 
 @export
+(defun print-json (condition)
+  (let* ((debug-information (make-debug-information condition))
+         (json (debug-information-to-json debug-information)))
+    (princ json)))
+
+@export
 (defun debug-information-output ()
   (when *debug-information-stock*
     (let* ((debug-information (pop *debug-information-stock*))
