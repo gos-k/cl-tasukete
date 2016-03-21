@@ -29,6 +29,8 @@ git clone https://github.com/gos-k/cl-tasukete.git
 
 ## Usage
 
+### debugger hook
+
 Start cl-tasukete.
 
 ```common-lisp
@@ -52,6 +54,14 @@ If you stop cl-tasukete
 
 ```common-lisp
 (tasukete:stop)
+```
+
+### hander-bind
+
+```common-lisp
+(ql:quickload :cl-tasukete)
+(handler-bind ((error #'tasukete:print-json))
+  (error 1))
 ```
 
 ## Input source
