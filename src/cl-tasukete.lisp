@@ -11,10 +11,6 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
         :cl-annot
         :cl-annot.class
         :jonathan)
-  (:import-from :local-time
-                :get-universal-time
-                :universal-to-timestamp
-                :format-timestring)
   (:import-from :cl-gists
                 :make-gist
                 :gist-url
@@ -22,6 +18,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
   (:import-from :cl-tasukete.key-value
                 :tasukete-key-value
                 :tasukete-condition
+                :<time>
                 :key
                 :value
                 :get-key
@@ -44,12 +41,6 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                                    <lisp-implementation>
                                    <loaded-packages>
                                    <stack>))
-
-@export-class
-(defclass <time> (tasukete-key-value)
-  ((key :initform "time")
-   (value :initform (format-timestring nil (universal-to-timestamp
-                                            (get-universal-time))))))
 
 @export-class
 (defclass <machine> (tasukete-key-value)

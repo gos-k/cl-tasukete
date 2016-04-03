@@ -48,3 +48,9 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
 
 (defmethod get-value ((condition tasukete-condition))
   (format nil "~s" (slot-value condition 'value)))
+
+@export-class
+(defclass <time> (tasukete-key-value)
+  ((key :initform "time")
+   (value :initform (format-timestring nil (universal-to-timestamp
+                                            (get-universal-time))))))
