@@ -67,3 +67,9 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
   ((key :initform "operating-system")
    (value :initform (list :type (software-type)
                           :version (software-version)))))
+
+@export-class
+(defclass <lisp-implementation> (tasukete-key-value)
+  ((key :initform "lisp-implementation")
+   (value :initform (list :type (lisp-implementation-type)
+                          :version (lisp-implementation-version)))))

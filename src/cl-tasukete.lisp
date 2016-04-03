@@ -21,6 +21,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                 :tasukete-time
                 :tasukete-machine
                 :tasukete-operating-system
+                :<lisp-implementation>
                 :key
                 :value
                 :get-key
@@ -43,12 +44,6 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                                    <lisp-implementation>
                                    <loaded-packages>
                                    <stack>))
-
-@export-class
-(defclass <lisp-implementation> (tasukete-key-value)
-  ((key :initform "lisp-implementation")
-   (value :initform (list :type (lisp-implementation-type)
-                          :version (lisp-implementation-version)))))
 
 @export-class
 (defclass <loaded-packages> (tasukete-key-value)
