@@ -9,7 +9,6 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
         :prove
         :cl-tasukete-test.init)
   (:import-from :cl-tasukete
-                :send-to-gist
                 :make-debug-information)
   (:import-from :cl-tasukete.key-value
                 :tasukete-key-value
@@ -45,11 +44,5 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
           (is (dissect:file x) "dummy-file.lisp" "can get file.")
           (is (dissect:line x) 3 "can get line.")
           (is (dissect:form x) "(defun dummy-function ())" "can get form."))))))
-
-(subtest "send-to-gist"
-  (with-stub-cl-gists
-    (let ((gist (send-to-gist "dummy")))
-      (is (cl-gists:gist-url gist) "https://api.github.com/gists/dummy"
-          "can call send-to-gist"))))
 
 (finalize)

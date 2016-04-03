@@ -9,7 +9,8 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
         :prove
         :cl-tasukete-test.init)
   (:import-from :cl-tasukete.helper
-                :make-loaded-packages))
+                :make-loaded-packages
+                :send-to-gist))
 (in-package :cl-tasukete-test.helper)
 
 (plan nil)
@@ -22,5 +23,11 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
       (is (cdr (nth 0 packages)) "0.0.0")
       (is (car (nth 1 packages)) "dummy-test")
       (is (cdr (nth 1 packages)) "1.2.3"))))
+
+(subtest "send-to-gist"
+  (with-stub-cl-gists
+    (let ((gist (send-to-gist "dummy")))
+      (is (cl-gists:gist-url gist) "https://api.github.com/gists/dummy"
+          "can call send-to-gist"))))
 
 (finalize)

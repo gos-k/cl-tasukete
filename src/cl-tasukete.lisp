@@ -11,10 +11,6 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
         :cl-annot
         :cl-annot.class
         :jonathan)
-  (:import-from :cl-gists
-                :make-gist
-                :gist-url
-                :create-gist)
   (:import-from :cl-tasukete.key-value
                 :tasukete-key-value
                 :tasukete-condition
@@ -60,14 +56,6 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
   (with-output-to-string*
     (with-object
       (write-key-value "cl-tasukete" debug-information))))
-
-@export
-(defun send-to-gist (content)
-  (let* ((gist (make-gist :description "This is cl-tasukete output."
-                          :public t
-                          :files `((:name "cl-tasukete"
-                                    :content ,content)))))
-    (create-gist gist)))
 
 (defun debugger-hook (condition me-or-my-encapsulation)
   (push (make-debug-information condition) *debug-information-stock*)

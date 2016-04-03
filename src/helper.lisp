@@ -7,7 +7,11 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
 (defpackage cl-tasukete.helper
   (:use :cl
         :asdf
-        :cl-annot))
+        :cl-annot)
+  (:import-from :cl-gists
+                :make-gist
+                :gist-url
+                :create-gist))
 (in-package :cl-tasukete.helper)
 
 (syntax:use-syntax :annot)
@@ -18,3 +22,10 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
         collecting (cons name
                          (component-version (find-system name)))))
 
+@export
+(defun send-to-gist (content)
+  (let* ((gist (make-gist :description "This is cl-tasukete output."
+                          :public t
+                          :files `((:name "cl-tasukete"
+                                    :content ,content)))))
+    (create-gist gist)))
