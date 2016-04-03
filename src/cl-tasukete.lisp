@@ -21,6 +21,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                 :create-gist)
   (:import-from :cl-tasukete.key-value
                 :tasukete-key-value
+                :<condition>
                 :key
                 :value
                 :get-key
@@ -43,15 +44,6 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                                    <lisp-implementation>
                                    <loaded-packages>
                                    <stack>))
-
-@export-class
-(defclass <condition> (tasukete-key-value)
-  ((key :initform "condition")
-   (value :initarg :condition
-          :initform nil)))
-
-(defmethod get-value ((condition <condition>))
-  (format nil "~s" (slot-value condition 'value)))
 
 @export-class
 (defclass <time> (tasukete-key-value)
