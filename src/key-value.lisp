@@ -56,7 +56,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                                             (get-universal-time))))))
 
 @export-class
-(defclass <machine> (tasukete-key-value)
+(defclass tasukete-machine (tasukete-key-value)
   ((key :initform "machine")
    (value :initform (list :instance (machine-instance)
                           :type (machine-type)
