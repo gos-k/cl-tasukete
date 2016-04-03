@@ -15,7 +15,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                 :make-debug-information
                 :make-loaded-packages)
   (:import-from :cl-tasukete.key-value
-                :<key-value>
+                :tasukete-key-value
                 :value
                 :get-key
                 :get-value))
@@ -31,8 +31,8 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
            (value (slot-value (find-type '<loaded-packages> debug-information)
                               'value)))
       (is (length value) 2 "2 elements")
-      (is-type (nth 0 value) '<key-value> "type <key-value>")
-      (is-type (nth 1 value) '<key-value> "type <key-value>")))
+      (is-type (nth 0 value) 'tasukete-key-value "type tasukete-key-value")
+      (is-type (nth 1 value) 'tasukete-key-value "type tasukete-key-value")))
   (with-stub-dissect
     (let ((debug-information (make-debug-information nil)))
       (let ((stack (slot-value (find-type '<stack> debug-information)

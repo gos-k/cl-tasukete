@@ -20,7 +20,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                 :gist-url
                 :create-gist)
   (:import-from :cl-tasukete.key-value
-                :<key-value>
+                :tasukete-key-value
                 :key
                 :value
                 :get-key
@@ -45,7 +45,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                                    <stack>))
 
 @export-class
-(defclass <condition> (<key-value>)
+(defclass <condition> (tasukete-key-value)
   ((key :initform "condition")
    (value :initarg :condition
           :initform nil)))
@@ -54,37 +54,37 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
   (format nil "~s" (slot-value condition 'value)))
 
 @export-class
-(defclass <time> (<key-value>)
+(defclass <time> (tasukete-key-value)
   ((key :initform "time")
    (value :initform (format-timestring nil (universal-to-timestamp
                                             (get-universal-time))))))
 
 @export-class
-(defclass <machine> (<key-value>)
+(defclass <machine> (tasukete-key-value)
   ((key :initform "machine")
    (value :initform (list :instance (machine-instance)
                           :type (machine-type)
                           :version (machine-version)))))
 
 @export-class
-(defclass <operating-system> (<key-value>)
+(defclass <operating-system> (tasukete-key-value)
   ((key :initform "operating-system")
    (value :initform (list :type (software-type)
                           :version (software-version)))))
 
 @export-class
-(defclass <lisp-implementation> (<key-value>)
+(defclass <lisp-implementation> (tasukete-key-value)
   ((key :initform "lisp-implementation")
    (value :initform (list :type (lisp-implementation-type)
                           :version (lisp-implementation-version)))))
 
 @export-class
-(defclass <loaded-packages> (<key-value>)
+(defclass <loaded-packages> (tasukete-key-value)
   ((key :initform "loaded-packages")
    (value :initform (make-loaded-packages))))
 
 @export-class
-(defclass <stack> (<key-value>)
+(defclass <stack> (tasukete-key-value)
   ((key :initform "stack")
    (value :initform (dissect:stack))))
 
@@ -102,7 +102,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
 @export
 (defun make-loaded-packages ()
   (mapcar #'(lambda (name)
-              (make-instance '<key-value>
+              (make-instance 'tasukete-key-value
                              :key name
                              :value (component-version (find-system name))))
           (already-loaded-systems)))

@@ -23,19 +23,19 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
 (syntax:use-syntax :annot)
 
 @export-class
-(defclass <key-value> ()
+(defclass tasukete-key-value ()
   ((key :initarg :key)
    (value :initarg :value)))
 
 @export
-(defmethod get-key ((key-value <key-value>))
+(defmethod get-key ((key-value tasukete-key-value))
   (slot-value key-value 'key))
 
 @export
-(defmethod get-value ((key-value <key-value>))
+(defmethod get-value ((key-value tasukete-key-value))
   (slot-value key-value 'value))
 
-(defmethod %to-json ((key-value <key-value>))
+(defmethod %to-json ((key-value tasukete-key-value))
   (with-object
     (write-key-value (get-key key-value)
                      (get-value key-value))))
