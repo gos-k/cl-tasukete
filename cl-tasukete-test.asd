@@ -17,6 +17,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
   :components ((:module "t"
                 :components
                 ((:file "init")
+                 (:test-file "helper")
                  (:test-file "cl-tasukete"))))
   :description "Test system for cl-tasukete"
 

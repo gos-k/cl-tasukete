@@ -19,7 +19,8 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                :local-time)
   :components ((:module "src"
                 :components
-                ((:file "key-value")
+                ((:file "helper")
+                 (:file "key-value")
                  (:file "cl-tasukete"))))
   :description ""
   :long-description

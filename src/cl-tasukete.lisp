@@ -15,6 +15,8 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                 :make-gist
                 :gist-url
                 :create-gist)
+  (:import-from :cl-tasukete.helper
+                :make-loaded-packages)
   (:import-from :cl-tasukete.key-value
                 :tasukete-key-value
                 :tasukete-condition
@@ -48,7 +50,10 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
 @export-class
 (defclass <loaded-packages> (tasukete-key-value)
   ((key :initform "loaded-packages")
-   (value :initform (make-loaded-packages))))
+   (value :initform (loop for (key . value) in (make-loaded-packages)
+                          collecting (make-instance 'tasukete-key-value
+                                                    :key key
+                                                    :value value)))))
 
 @export-class
 (defclass <stack> (tasukete-key-value)
@@ -65,14 +70,6 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                 ('tasukete-condition (make-instance type :condition condition))
                 (t (make-instance type))))
           *debug-information-list*))
-
-@export
-(defun make-loaded-packages ()
-  (mapcar #'(lambda (name)
-              (make-instance 'tasukete-key-value
-                             :key name
-                             :value (component-version (find-system name))))
-          (already-loaded-systems)))
 
 @export
 (defmethod debug-information-to-json (debug-information)

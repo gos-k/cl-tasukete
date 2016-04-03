@@ -12,8 +12,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                 :<loaded-packages>
                 :<stack>
                 :send-to-gist
-                :make-debug-information
-                :make-loaded-packages)
+                :make-debug-information)
   (:import-from :cl-tasukete.key-value
                 :tasukete-key-value
                 :value
@@ -21,7 +20,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                 :get-value))
 (in-package :cl-tasukete-test)
 
-(plan 3)
+(plan nil)
 
 (subtest "make-debug-information"
   (let ((debug-information (make-debug-information nil)))
@@ -46,15 +45,6 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
           (is (dissect:file x) "dummy-file.lisp" "can get file.")
           (is (dissect:line x) 3 "can get line.")
           (is (dissect:form x) "(defun dummy-function ())" "can get form."))))))
-
-(subtest "make-load-packages"
-  (with-stub-asdf
-    (let ((packages (make-loaded-packages)))
-      (is (length packages) 2)
-      (is (get-key (nth 0 packages)) "dummy")
-      (is (get-value (nth 0 packages)) "0.0.0")
-      (is (get-key (nth 1 packages)) "dummy-test")
-      (is (get-value (nth 1 packages)) "1.2.3"))))
 
 (subtest "send-to-gist"
   (with-stub-cl-gists
