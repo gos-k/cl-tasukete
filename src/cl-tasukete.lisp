@@ -23,6 +23,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                 :tasukete-operating-system
                 :tasukete-lisp-implementation
                 :tasukete-loaded-packages
+                :<stack>
                 :key
                 :value
                 :get-key
@@ -45,14 +46,6 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                                    tasukete-lisp-implementation
                                    tasukete-loaded-packages
                                    <stack>))
-
-@export-class
-(defclass <stack> (tasukete-key-value)
-  ((key :initform "stack")
-   (value :initform (dissect:stack))))
-
-(defmethod get-value ((stack <stack>))
-  (mapcar #'prin1-to-string (slot-value stack 'value)))
 
 @export
 (defun make-debug-information (condition)
