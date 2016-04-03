@@ -63,7 +63,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                           :version (machine-version)))))
 
 @export-class
-(defclass <operating-system> (tasukete-key-value)
+(defclass tasukete-operating-system (tasukete-key-value)
   ((key :initform "operating-system")
    (value :initform (list :type (software-type)
                           :version (software-version)))))
