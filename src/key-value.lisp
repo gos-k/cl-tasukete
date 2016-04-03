@@ -54,3 +54,10 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
   ((key :initform "time")
    (value :initform (format-timestring nil (universal-to-timestamp
                                             (get-universal-time))))))
+
+@export-class
+(defclass <machine> (tasukete-key-value)
+  ((key :initform "machine")
+   (value :initform (list :instance (machine-instance)
+                          :type (machine-type)
+                          :version (machine-version)))))
