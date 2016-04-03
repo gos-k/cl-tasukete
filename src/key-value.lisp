@@ -69,7 +69,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                           :version (software-version)))))
 
 @export-class
-(defclass <lisp-implementation> (tasukete-key-value)
+(defclass tasukete-lisp-implementation (tasukete-key-value)
   ((key :initform "lisp-implementation")
    (value :initform (list :type (lisp-implementation-type)
                           :version (lisp-implementation-version)))))

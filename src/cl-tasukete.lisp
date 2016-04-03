@@ -21,7 +21,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                 :tasukete-time
                 :tasukete-machine
                 :tasukete-operating-system
-                :<lisp-implementation>
+                :tasukete-lisp-implementation
                 :key
                 :value
                 :get-key
@@ -41,7 +41,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                                    tasukete-time
                                    tasukete-machine
                                    tasukete-operating-system
-                                   <lisp-implementation>
+                                   tasukete-lisp-implementation
                                    <loaded-packages>
                                    <stack>))
 
