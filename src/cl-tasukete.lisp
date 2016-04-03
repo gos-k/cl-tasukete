@@ -18,7 +18,13 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
   (:import-from :cl-gists
                 :make-gist
                 :gist-url
-                :create-gist))
+                :create-gist)
+  (:import-from :cl-tasukete.key-value
+                :<key-value>
+                :key
+                :value
+                :get-key
+                :get-value))
 (in-package :cl-tasukete)
 
 (syntax:use-syntax :annot)
@@ -37,22 +43,6 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                                    <lisp-implementation>
                                    <loaded-packages>
                                    <stack>))
-
-@export-class
-(defclass <key-value> ()
-  ((key :initarg :key)
-   (value :initarg :value)))
-
-(defmethod get-key ((key-value <key-value>))
-  (slot-value key-value 'key))
-
-(defmethod get-value ((key-value <key-value>))
-  (slot-value key-value 'value))
-
-(defmethod %to-json ((key-value <key-value>))
-  (with-object
-    (write-key-value (get-key key-value)
-                     (get-value key-value))))
 
 @export-class
 (defclass <condition> (<key-value>)
