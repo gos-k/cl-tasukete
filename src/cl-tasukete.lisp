@@ -21,7 +21,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                 :create-gist)
   (:import-from :cl-tasukete.key-value
                 :tasukete-key-value
-                :<condition>
+                :tasukete-condition
                 :key
                 :value
                 :get-key
@@ -37,7 +37,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
 (defvar *use-gist* nil)
 
 @export
-(defvar *debug-information-list* '(<condition>
+(defvar *debug-information-list* '(tasukete-condition
                                    <time>
                                    <machine>
                                    <operating-system>
@@ -87,7 +87,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
 (defun make-debug-information (condition)
   (mapcar #'(lambda (type)
               (case type
-                ('<condition> (make-instance type :condition condition))
+                ('tasukete-condition (make-instance type :condition condition))
                 (t (make-instance type))))
           *debug-information-list*))
 

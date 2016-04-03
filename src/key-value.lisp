@@ -41,10 +41,10 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                      (get-value key-value))))
 
 @export-class
-(defclass <condition> (tasukete-key-value)
+(defclass tasukete-condition (tasukete-key-value)
   ((key :initform "condition")
    (value :initarg :condition
           :initform nil)))
 
-(defmethod get-value ((condition <condition>))
+(defmethod get-value ((condition tasukete-condition))
   (format nil "~s" (slot-value condition 'value)))
