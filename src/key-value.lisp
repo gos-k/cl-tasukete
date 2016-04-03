@@ -77,7 +77,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                           :version (lisp-implementation-version)))))
 
 @export-class
-(defclass <loaded-packages> (tasukete-key-value)
+(defclass tasukete-loaded-packages (tasukete-key-value)
   ((key :initform "loaded-packages")
    (value :initform (loop for (key . value) in (make-loaded-packages)
                           collecting (make-instance 'tasukete-key-value

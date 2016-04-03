@@ -22,7 +22,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                 :tasukete-machine
                 :tasukete-operating-system
                 :tasukete-lisp-implementation
-                :<loaded-packages>
+                :tasukete-loaded-packages
                 :key
                 :value
                 :get-key
@@ -43,7 +43,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                                    tasukete-machine
                                    tasukete-operating-system
                                    tasukete-lisp-implementation
-                                   <loaded-packages>
+                                   tasukete-loaded-packages
                                    <stack>))
 
 @export-class
