@@ -9,12 +9,12 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
         :prove
         :cl-tasukete-test.init)
   (:import-from :cl-tasukete
-                :<loaded-packages>
                 :<stack>
                 :send-to-gist
                 :make-debug-information)
   (:import-from :cl-tasukete.key-value
                 :tasukete-key-value
+                :<loaded-packages>
                 :value
                 :get-key
                 :get-value))

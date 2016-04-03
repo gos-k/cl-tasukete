@@ -17,7 +17,9 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
   (:import-from :cl-gists
                 :make-gist
                 :gist-url
-                :create-gist))
+                :create-gist)
+  (:import-from :cl-tasukete.helper
+                :make-loaded-packages))
 (in-package :cl-tasukete.key-value)
 
 (syntax:use-syntax :annot)
@@ -73,3 +75,11 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
   ((key :initform "lisp-implementation")
    (value :initform (list :type (lisp-implementation-type)
                           :version (lisp-implementation-version)))))
+
+@export-class
+(defclass <loaded-packages> (tasukete-key-value)
+  ((key :initform "loaded-packages")
+   (value :initform (loop for (key . value) in (make-loaded-packages)
+                          collecting (make-instance 'tasukete-key-value
+                                                    :key key
+                                                    :value value)))))

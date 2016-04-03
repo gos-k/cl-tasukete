@@ -15,8 +15,6 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                 :make-gist
                 :gist-url
                 :create-gist)
-  (:import-from :cl-tasukete.helper
-                :make-loaded-packages)
   (:import-from :cl-tasukete.key-value
                 :tasukete-key-value
                 :tasukete-condition
@@ -24,6 +22,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                 :tasukete-machine
                 :tasukete-operating-system
                 :tasukete-lisp-implementation
+                :<loaded-packages>
                 :key
                 :value
                 :get-key
@@ -46,14 +45,6 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                                    tasukete-lisp-implementation
                                    <loaded-packages>
                                    <stack>))
-
-@export-class
-(defclass <loaded-packages> (tasukete-key-value)
-  ((key :initform "loaded-packages")
-   (value :initform (loop for (key . value) in (make-loaded-packages)
-                          collecting (make-instance 'tasukete-key-value
-                                                    :key key
-                                                    :value value)))))
 
 @export-class
 (defclass <stack> (tasukete-key-value)
