@@ -9,7 +9,6 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
   (:use :cl
         :asdf
         :cl-annot
-        :cl-annot.class
         :jonathan)
   (:import-from :cl-tasukete.key-value
                 :tasukete-key-value
