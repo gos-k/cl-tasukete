@@ -50,7 +50,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
   (format nil "~s" (slot-value condition 'value)))
 
 @export-class
-(defclass <time> (tasukete-key-value)
+(defclass tasukete-time (tasukete-key-value)
   ((key :initform "time")
    (value :initform (format-timestring nil (universal-to-timestamp
                                             (get-universal-time))))))

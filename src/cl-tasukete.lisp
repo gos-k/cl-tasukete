@@ -18,7 +18,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
   (:import-from :cl-tasukete.key-value
                 :tasukete-key-value
                 :tasukete-condition
-                :<time>
+                :tasukete-time
                 :key
                 :value
                 :get-key
@@ -35,7 +35,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
 
 @export
 (defvar *debug-information-list* '(tasukete-condition
-                                   <time>
+                                   tasukete-time
                                    <machine>
                                    <operating-system>
                                    <lisp-implementation>
