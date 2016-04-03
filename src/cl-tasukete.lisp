@@ -159,4 +159,5 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
   (unless *default-debugger-hook*
     (error "cl-tasukete has not started."))
   (setf *DEBUGGER-HOOK* *default-debugger-hook*)
-  (setf *default-debugger-hook* nil))
+  (setf *default-debugger-hook* nil)
+  t)
