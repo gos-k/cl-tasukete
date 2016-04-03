@@ -85,9 +85,9 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                                                     :value value)))))
 
 @export-class
-(defclass <stack> (tasukete-key-value)
+(defclass tasukete-stack (tasukete-key-value)
   ((key :initform "stack")
    (value :initform (dissect:stack))))
 
-(defmethod get-value ((stack <stack>))
+(defmethod get-value ((stack tasukete-stack))
   (mapcar #'prin1-to-string (slot-value stack 'value)))

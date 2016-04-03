@@ -23,7 +23,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                 :tasukete-operating-system
                 :tasukete-lisp-implementation
                 :tasukete-loaded-packages
-                :<stack>
+                :tasukete-stack
                 :key
                 :value
                 :get-key
@@ -45,7 +45,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                                    tasukete-operating-system
                                    tasukete-lisp-implementation
                                    tasukete-loaded-packages
-                                   <stack>))
+                                   tasukete-stack))
 
 @export
 (defun make-debug-information (condition)

@@ -14,7 +14,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
   (:import-from :cl-tasukete.key-value
                 :tasukete-key-value
                 :tasukete-loaded-packages
-                :<stack>
+                :tasukete-stack
                 :value
                 :get-key
                 :get-value))
@@ -34,7 +34,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
       (is-type (nth 1 value) 'tasukete-key-value "type tasukete-key-value")))
   (with-stub-dissect
     (let ((debug-information (make-debug-information nil)))
-      (let ((stack (slot-value (find-type '<stack> debug-information)
+      (let ((stack (slot-value (find-type 'tasukete-stack debug-information)
                                'value)))
         (is-type stack 'list "can get stack list.")
         (is-type (car stack) 'dissect:call "can get call object.")
