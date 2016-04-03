@@ -20,6 +20,7 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                 :tasukete-condition
                 :tasukete-time
                 :tasukete-machine
+                :<operating-system>
                 :key
                 :value
                 :get-key
@@ -42,12 +43,6 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                                    <lisp-implementation>
                                    <loaded-packages>
                                    <stack>))
-
-@export-class
-(defclass <operating-system> (tasukete-key-value)
-  ((key :initform "operating-system")
-   (value :initform (list :type (software-type)
-                          :version (software-version)))))
 
 @export-class
 (defclass <lisp-implementation> (tasukete-key-value)
