@@ -53,6 +53,9 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
                 (t (make-instance type))))
           *debug-information-list*))
 
+(defun make-system-information ()
+  (mapcar #'make-instance *system-information-list*))
+
 @export
 (defmethod debug-information-to-json (debug-information)
   (with-output-to-string*
@@ -65,9 +68,11 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
   (funcall *default-debugger-hook* condition me-or-my-encapsulation))
 
 @export
-(defun print-json (condition)
-  (let* ((debug-information (make-debug-information condition))
-         (json (debug-information-to-json debug-information)))
+(defun print-json (&optional condition)
+  (let* ((information (if condition
+                          (make-debug-information condition)
+                          (make-system-information)))
+         (json (debug-information-to-json information)))
     (princ json)))
 
 @export
