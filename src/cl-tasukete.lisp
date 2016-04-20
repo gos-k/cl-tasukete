@@ -62,11 +62,6 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
     (with-object
       (write-key-value "cl-tasukete" debug-information))))
 
-(defun debugger-hook (condition me-or-my-encapsulation)
-  (push (make-debug-information condition) *debug-information-stock*)
-  (debug-information-output)
-  (funcall *default-debugger-hook* condition me-or-my-encapsulation))
-
 @export
 (defun print-json (&optional condition)
   (let* ((information (if condition
@@ -86,6 +81,11 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
         (let* ((gist (send-to-gist tasukete-json)))
           (format t "sent to gist : ~a~%" (gist-url gist))))
       (push debug-information *debug-information-stock-output*))))
+
+(defun debugger-hook (condition me-or-my-encapsulation)
+  (push (make-debug-information condition) *debug-information-stock*)
+  (debug-information-output)
+  (funcall *default-debugger-hook* condition me-or-my-encapsulation))
 
 @export
 (defun start (&key (use-standard-output t) (use-gist nil))
