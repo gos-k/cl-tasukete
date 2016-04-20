@@ -34,13 +34,16 @@ Copyright (c) 2015 gos-k (mag4.elan@gmail.com)
 (defvar *use-gist* nil)
 
 @export
-(defvar *debug-information-list* '(tasukete-condition
-                                   tasukete-time
-                                   tasukete-machine
-                                   tasukete-operating-system
-                                   tasukete-lisp-implementation
-                                   tasukete-loaded-packages
-                                   tasukete-stack))
+(defvar *system-information-list* '(tasukete-time
+                                    tasukete-machine
+                                    tasukete-operating-system
+                                    tasukete-lisp-implementation
+                                    tasukete-loaded-packages))
+
+@export
+(defvar *debug-information-list* (append '(tasukete-condition
+                                           tasukete-stack)
+                                         *system-information-list*))
 
 @export
 (defun make-debug-information (condition)
